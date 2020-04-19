@@ -35,6 +35,6 @@ For more information, please refer to:
 | Toasts               | [react-toastify](https://github.com/fkhadra/react-toastify)                            |
 | Environment files    | [env-cmd](https://github.com/toddbluhm/env-cmd)                                        |
 | Fake REST APIs       | [json-server](https://github.com/typicode/json-server)                                 |
-| License check        | [license-chcker](https://github.com/davglass/license-checker)                          |
+| License check        | [license-checker](https://github.com/davglass/license-checker)                         |
 
 ## [MIT](https://github.com/ajeetshah/react-rich/blob/master/LICENSE)

@@ -1,6 +1,6 @@
 # cra-template-rich
 
-This [Create React App](https://github.com/facebook/create-react-app) template comes with a _rich set of features_ commonly used in any web app. It will make you save a lot of time and money to make you a rich developer :moneybag: :money_with_wings: :heart_eyes: :sunglasses: :heart: :tada: :confetti_ball: :gift: :hamburger:
+This [Create React App](https://github.com/facebook/create-react-app) template comes with a _rich set of features_ commonly used in any web app. It will make you save a lot of time, money and make you rich :moneybag: :money_with_wings: :heart_eyes: :sunglasses: :heart: :tada: :confetti_ball: :gift: :hamburger:
 
 To use this template, add `--template rich` when creating a new app.
 

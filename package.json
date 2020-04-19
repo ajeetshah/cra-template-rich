@@ -1,19 +1,25 @@
 {
   "name": "cra-template-rich",
   "version": "1.0.0",
-  "description": "**React-Rich** template comes with a _rich set of features_ commonly used in any web app. It will make you save a lot of time and money to make you a rich developer :moneybag: :money_with_wings: :heart_eyes: :neckbeard: :sunglasses: :heart: :tada: :confetti_ball: :gift: :hamburger:",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template"
+  ],
+  "description": "A rich template for Create React App.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajeetshah/cra-template-rich.git"
+    "url": "https://github.com/ajeetshah/cra-template-rich.git"
   },
-  "author": "Ajeet Shah",
   "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
   "bugs": {
     "url": "https://github.com/ajeetshah/cra-template-rich/issues"
   },
-  "homepage": "https://github.com/ajeetshah/cra-template-rich#readme"
+  "files": [
+    "template",
+    "template.json"
+  ]
 }

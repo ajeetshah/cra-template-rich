@@ -1,0 +1,21 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+// libraries
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/react-perfect-scrollbar/dist/css/styles.css';
+@import '../../node_modules/react-datepicker/dist/react-datepicker.css';
+@import '../../node_modules/react-toastify/dist/ReactToastify.css';
+
+// custom
+@import './custom/reactToastify';
+
+// common
+@import './common/common';

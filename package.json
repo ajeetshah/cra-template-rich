@@ -1,0 +1,26 @@
+{
+  "name": "cra-template-rich",
+  "version": "1.0.3",
+  "keywords": [
+    "react",
+    "cra-template-rich",
+    "template"
+  ],
+  "description": "The React-Rich template for Create React App.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajeetshah/cra-template-rich.git",
+    "directory": "packages/cra-template-rich"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/ajeetshah/cra-template-rich.git/issues"
+  },
+  "files": [
+    "template",
+    "template.json"
+  ]
+}

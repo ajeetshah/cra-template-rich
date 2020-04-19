@@ -1,0 +1,7 @@
+export const httpOk = '200'
+export const httpBadRequest = '400'
+export const httpUnauthenticated = '401'
+export const httpNotFound = '404'
+export const httpServerError = '500'
+export const httpBadGateway = '502'
+export const httpGatewayTimeout = '502'

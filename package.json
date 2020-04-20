@@ -1,10 +1,14 @@
 {
   "name": "cra-template-rich",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "keywords": [
     "react",
     "create-react-app",
-    "template"
+    "template",
+    "rich",
+    "cra-rich",
+    "rich-template",
+    "cra-template-rich"
   ],
   "main": "template.json",
   "description": "A rich template for Create React App.",

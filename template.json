@@ -29,17 +29,17 @@
       "typescript": "^3.8.3"
     },
     "scripts": {
-      "start": "echo \"Running Mockdb and React App\" & npm run start:mockdb & npm run start:react",
-      "start:react": "react-scripts start",
-      "start:mockdb": "json-server -c mock/json-server.json -r mock/routes.json -m mock/middleware.js -w mock/index.js",
+      "prestart": "npm run mock-api &",
+      "start": "react-scripts start",
       "build": "react-scripts build",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
-      "prelicense": "license-checker --production --csv --out license/license.csv",
-      "license": "node license/license-formatter.js",
       "dev": "env-cmd -f envs/.env.dev react-scripts build",
       "demo": "env-cmd -f envs/.env.demo react-scripts build",
-      "prod": "env-cmd -f envs/.env.prod react-scripts build"
+      "prod": "env-cmd -f envs/.env.prod react-scripts build",
+      "mock-api": "json-server -c mock/config.json mock/index.js",
+      "prelicense": "license-checker --production --csv --out license/license.csv",
+      "license": "node license/license-formatter.js"
     },
     "eslintConfig": {
       "extends": ["react-app", "plugin:jsx-a11y/recommended"],

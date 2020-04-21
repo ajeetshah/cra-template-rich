@@ -7,7 +7,7 @@ import { ToastContainer } from 'react-toastify'
 
 export default function App() {
   const loading = useSelector(selectLoading)
-  const toastDuration = process.env.REACT_APP_TOAST_DURATION || 5000
+  const toastDuration = Number(process.env.REACT_APP_TOAST_DURATION || 5000)
 
   return (
     <Suspense fallback={<ReLoader loading={true} />}>

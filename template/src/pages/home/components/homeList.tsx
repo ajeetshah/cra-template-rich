@@ -34,7 +34,9 @@ export default function HomeList(props: Props) {
               <button
                 key={item[itemIdKey]}
                 type="button"
-                className={`list-group-item list-group-item-action ${active ? 'active' : ''}`}
+                className={`list-group-item list-group-item-action ${
+                  active ? 'active' : ''
+                }`}
                 onClick={() => handleClick(item)}
               >
                 {item[itemTitleKey]}

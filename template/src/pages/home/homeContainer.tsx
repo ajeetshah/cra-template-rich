@@ -17,6 +17,7 @@ export default function HomeContainer(props: Props) {
   const { cars, selectedCar } = useSelector(homeState)
 
   function handleSubmit(data: FormData) {
+    handleChangeActive({} as Car)
     dispatch(fetchCars(data.searchText))
       .then(unwrapResult)
       .then((cars) => {
@@ -36,7 +37,11 @@ export default function HomeContainer(props: Props) {
     <div className="pt-3 w-75 mx-auto">
       <ReHeading1 text={nameApp} className="pt-1 text-center text-success" />
       <HomeSearch onSubmit={handleSubmit} />
-      <HomeList items={cars} activeItem={selectedCar} onChangeActive={handleChangeActive} />
+      <HomeList
+        items={cars}
+        activeItem={selectedCar}
+        onChangeActive={handleChangeActive}
+      />
       {selectedCar && selectedCar.title && (
         <ReInfoText text={`Selected: ${selectedCar.title}`} className="pt-2" />
       )}

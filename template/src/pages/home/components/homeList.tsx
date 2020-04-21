@@ -23,7 +23,7 @@ export default function HomeList(props: Props) {
   }
 
   return (
-    <div className="list-group h-300px pt-2 overflow-auto">
+    <div className="list-group max-h-300px pt-2 overflow-auto">
       {items.length === 0 ? (
         <ReInfoText text="No result" className="pt-3" />
       ) : (

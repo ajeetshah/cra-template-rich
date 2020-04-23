@@ -9,6 +9,7 @@ import { homeState, Car, setSelectedCar, fetchCars } from './homeSlice'
 import { toast } from 'react-toastify'
 import ReInfoText from '../../common/texts/reInfoText'
 import './home.scss'
+import { AxiosResponse } from 'axios'
 
 interface Props {}
 
@@ -18,14 +19,15 @@ export default function HomeContainer(props: Props) {
 
   function handleSubmit(data: FormData) {
     handleChangeActive({} as Car)
+
     dispatch(fetchCars(data.searchText))
       .then(unwrapResult)
-      .then((cars) => {
+      .then((res: AxiosResponse<Car[]>) => {
+        console.debug('cars', res.data)
         toast.success('Data fetched successfully')
       })
       .catch((error) => {
-        console.error(error)
-        toast.error('An error has occurred')
+        console.debug('error', error)
       })
   }
 

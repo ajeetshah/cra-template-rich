@@ -2,6 +2,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
 import { StoreState } from '../../store/store'
 import { get } from '../../http/httpMethods'
 import { urlCars } from '../../constants/apiURLs'
+import { AxiosResponse } from 'axios'
 
 const sliceName = 'home'
 
@@ -18,9 +19,16 @@ export interface Home {
 export const fetchCars = createAsyncThunk(
   `${sliceName}/fetchCars`,
   async (query: string, thunkAPI) => {
+    const { rejectWithValue } = thunkAPI
     const url = query ? urlCars + '?title_like=' + query : urlCars
-    const response = await get<Car[]>(url)
-    return response.data
+    try {
+      return await get<Car[]>(url)
+    } catch (err) {
+      if (!err.response) {
+        throw err
+      }
+      return rejectWithValue(err.response)
+    }
   }
 )
 
@@ -36,8 +44,17 @@ export const slice = createSlice({
     },
   },
   extraReducers: {
-    [fetchCars.fulfilled.toString()]: (state, action: PayloadAction<Car[]>) => {
-      state.cars = action.payload
+    [fetchCars.pending.toString()]: (state, action) => {
+      state.cars = []
+    },
+    [fetchCars.fulfilled.toString()]: (
+      state,
+      action: PayloadAction<AxiosResponse<Car[]>>
+    ) => {
+      state.cars = action.payload.data
+    },
+    [fetchCars.rejected.toString()]: (state, action) => {
+      state.cars = []
     },
   },
 })

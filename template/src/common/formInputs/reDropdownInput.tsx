@@ -23,13 +23,18 @@ export default function ReDropdownInput(props: Props) {
   } = props
   return (
     <Form.Group controlId="exampleForm.ControlSelect1">
-      <Form.Control name={name} as="select" ref={refProp} defaultValue={defaultValue}>
+      <Form.Control
+        name={name}
+        as="select"
+        ref={refProp as any}
+        defaultValue={defaultValue}
+      >
         {firstOption && (
           <option key={firstOption[keyForValue]} value={firstOption[keyForValue]}>
             {firstOption[keyForName]}
           </option>
         )}
-        {options.map(option => {
+        {options.map((option) => {
           return (
             <option key={option[keyForValue]} value={option[keyForValue]}>
               {option[keyForName]}

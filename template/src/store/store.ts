@@ -14,7 +14,12 @@ const store = configureStore({
     app: appReducer,
     home: homeReducer,
   },
-  middleware: [...getDefaultMiddleware(), apiActionMiddleware],
+  middleware: [
+    ...getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+    apiActionMiddleware,
+  ],
 })
 
 export default store

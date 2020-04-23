@@ -10,6 +10,7 @@ import {
   httpUnauthenticated,
 } from '../constants/httpStatusCodes'
 import history from '../routes/history'
+import { AxiosResponse } from 'axios'
 
 const TYPES = {
   pending: 'pending',
@@ -25,7 +26,6 @@ const apiActionMiddleware = (store) => (next) => (action: Action) => {
       next(setLoading({ data: true }))
       break
     case TYPES.rejected:
-      console.error(action)
       next(setLoading({ data: false }))
       handleApiError(action, next)
       break
@@ -53,8 +53,9 @@ function handleApiError(action: any, next) {
     case httpGatewayTimeout:
       break
   }
-  const message = action && action.response && action.response.data && action.response.data.message
-  toast.error(message)
+  const payload: AxiosResponse = action && action.payload
+  const message = payload && payload.data && payload.data.message
+  toast.error(message || 'Error')
 }
 
 function doLogout(next) {

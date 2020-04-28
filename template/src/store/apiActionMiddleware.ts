@@ -55,7 +55,7 @@ function handleApiError(action: any, next) {
   }
   const payload: AxiosResponse = action && action.payload
   const message = payload && payload.data && payload.data.message
-  toast.error(message || 'Error')
+  message && toast.error(message)
 }
 
 function doLogout(next) {

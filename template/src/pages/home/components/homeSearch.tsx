@@ -4,8 +4,7 @@ import { useForm } from 'react-hook-form'
 import { patternCarSearch } from '../../../constants/regExPatterns'
 import ReErrorText from '../../../common/texts/reErrorText'
 import RePrimaryButton from '../../../common/buttons/rePrimaryButton'
-import { placeholderCarSearch } from '../../../constants/placeHolders'
-import { errorCarSearchPattern } from '../../../constants/errorMessages'
+import { useIntl } from 'react-intl'
 
 interface Props {
   onSubmit: (data: FormData) => void
@@ -16,6 +15,7 @@ export interface FormData {
 }
 
 export default function HomeSearch(props: Props) {
+  const { formatMessage } = useIntl()
   const { onSubmit } = props
   const { register, handleSubmit: validateBefore, errors } = useForm<FormData>({
     mode: 'onChange',
@@ -32,14 +32,16 @@ export default function HomeSearch(props: Props) {
         name="searchText"
         className="h-50px"
         autoFocus={true}
-        placeholder={placeholderCarSearch}
+        placeholder={formatMessage({ id: 'home.placeholder.search' })}
         refProp={register({ required: false, pattern: patternCarSearch })}
       />
 
-      {errors.searchText && <ReErrorText text={errorCarSearchPattern} />}
+      {errors.searchText && (
+        <ReErrorText text={formatMessage({ id: 'home.error.search' })} />
+      )}
 
       <RePrimaryButton type="button" className="d-none">
-        hidden button
+        hidden
       </RePrimaryButton>
     </form>
   )

@@ -1,15 +1,15 @@
 import React from 'react'
-import HomeSearch, { FormData } from './components/homeSearch'
-import { useDispatch, useSelector } from 'react-redux'
+import './home.scss'
 import { unwrapResult } from '@reduxjs/toolkit'
+import { useDispatch, useSelector } from 'react-redux'
+import { AxiosResponse } from 'axios'
+import { useIntl } from 'react-intl'
+import HomeSearch, { FormData } from './components/homeSearch'
 import ReHeading1 from '../../common/typography/reHeading1'
 import HomeList from './components/homeList'
 import { homeState, Car, setSelectedCar, fetchCars } from './homeSlice'
-import { toast } from 'react-toastify'
 import ReInfoText from '../../common/texts/reInfoText'
-import './home.scss'
-import { AxiosResponse } from 'axios'
-import { useIntl } from 'react-intl'
+import { showSuccessToast } from '../../utils/toastUtil'
 
 interface Props {}
 
@@ -25,7 +25,7 @@ export default function HomeContainer(props: Props) {
       .then(unwrapResult)
       .then((res: AxiosResponse<Car[]>) => {
         console.debug('cars', res.data)
-        toast.success('Data fetched successfully')
+        showSuccessToast('Data fetched successfully')
       })
       .catch((error) => {
         console.debug('error', error)

@@ -1,6 +1,6 @@
-import { setLoading } from '../app/appSlice'
 import { Action } from '@reduxjs/toolkit'
-import { toast } from 'react-toastify'
+import { AxiosResponse } from 'axios'
+import { setLoading } from '../app/appSlice'
 import {
   httpBadGateway,
   httpBadRequest,
@@ -10,7 +10,7 @@ import {
   httpUnauthenticated,
 } from '../constants/httpStatusCodes'
 import history from '../routes/history'
-import { AxiosResponse } from 'axios'
+import { showErrorToast } from '../utils/toastUtil'
 
 const TYPES = {
   pending: 'pending',
@@ -55,7 +55,7 @@ function handleApiError(action: any, next) {
   }
   const payload: AxiosResponse = action && action.payload
   const message = payload && payload.data && payload.data.message
-  message && toast.error(message)
+  message && showErrorToast(message)
 }
 
 function doLogout(next) {

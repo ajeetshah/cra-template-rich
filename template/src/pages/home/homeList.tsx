@@ -1,5 +1,5 @@
 import React from 'react'
-import ReInfoText from '../../../common/texts/reInfoText'
+import ReInfoText from '../../common/texts/reInfoText'
 
 interface Props {
   items: any[]

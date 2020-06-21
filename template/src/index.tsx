@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { StrictMode } from 'react'
 import './styles/index.scss'
 import ReactDOM from 'react-dom'
 import App from './app/app'
@@ -16,7 +16,9 @@ const language = navigator.language.split(/[-_]/)[0]
 ReactDOM.render(
   <IntlProvider defaultLocale="en" locale={language} messages={messages[language]}>
     <Provider store={store}>
-      <App />
+      <StrictMode>
+        <App />
+      </StrictMode>
     </Provider>
   </IntlProvider>,
   document.getElementById('root')

@@ -1,9 +1,9 @@
 import React from 'react'
-import ReTextInput from '../../../common/formInputs/reTextInput'
+import ReTextInput from '../../common/formInputs/reTextInput'
 import { useForm } from 'react-hook-form'
-import { patternCarSearch } from '../../../constants/regExPatterns'
-import ReErrorText from '../../../common/texts/reErrorText'
-import RePrimaryButton from '../../../common/buttons/rePrimaryButton'
+import { patternCarSearch } from '../../constants/regExPatterns'
+import ReErrorText from '../../common/texts/reErrorText'
+import RePrimaryButton from '../../common/buttons/rePrimaryButton'
 import { useIntl } from 'react-intl'
 
 interface Props {

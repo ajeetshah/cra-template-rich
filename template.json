@@ -35,16 +35,13 @@
       "typescript": "^3.8.3"
     },
     "scripts": {
-      "start": "run-p start-app mock-api",
+      "start": "react-scripts start",
+      "start:server": "json-server -c mock/config.json mock/index.js",
       "build": "react-scripts build",
+      "build:custom": "env-cmd -f envs/.env.custom react-scripts build",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
-      "start-app": "react-scripts start",
-      "mock-api": "json-server -c mock/config.json mock/index.js",
       "clean": "rimraf build",
-      "dev": "env-cmd -f envs/.env.dev react-scripts build",
-      "demo": "env-cmd -f envs/.env.demo react-scripts build",
-      "prod": "env-cmd -f envs/.env.prod react-scripts build",
       "license": "run-s license-generate license-format",
       "license-generate": "license-checker --production --csv --out license/license.csv",
       "license-format": "node license/license-formatter.js"

@@ -4,9 +4,9 @@ import { unwrapResult } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 import { AxiosResponse } from 'axios'
 import { useIntl } from 'react-intl'
-import HomeSearch, { FormData } from './components/homeSearch'
+import HomeSearch, { FormData } from './homeSearch'
 import ReHeading1 from '../../common/typography/reHeading1'
-import HomeList from './components/homeList'
+import HomeList from './homeList'
 import { homeState, Car, setSelectedCar, fetchCars } from './homeSlice'
 import ReInfoText from '../../common/texts/reInfoText'
 import { showSuccessToast } from '../../utils/toastUtil'
@@ -54,6 +54,12 @@ export default function HomeContainer(props: Props) {
           className="pt-2"
         />
       )}
+      <div
+        className="text-muted font-13 my-3"
+        title="do '$ npm run start:server' for mock server, if not done already"
+      >
+        Mock server: <code>$ npm run start:server</code>
+      </div>
     </div>
   )
 }

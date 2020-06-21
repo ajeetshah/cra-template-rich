@@ -11,7 +11,11 @@ export default function App() {
 
   return (
     <Suspense fallback={<ReLoader loading={true} />}>
-      <ToastContainer autoClose={toastDuration} toastClassName="f-14" />
+      <ToastContainer
+        autoClose={toastDuration}
+        toastClassName="f-14"
+        newestOnTop={true}
+      />
       <ReLoader loading={loading} />
       <Routes />
     </Suspense>

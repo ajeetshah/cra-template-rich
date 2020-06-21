@@ -1,6 +1,6 @@
-import { toast, CommonOptions } from 'react-toastify'
+import { toast, ToastOptions } from 'react-toastify'
 
-const errorOptions: CommonOptions = {
+const errorOptions: ToastOptions = {
   autoClose: false,
 }
 

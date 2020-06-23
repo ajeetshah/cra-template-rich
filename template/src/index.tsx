@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import * as serviceWorker from './serviceWorker'
 import { IntlProvider } from 'react-intl'
 import messages from './translations/messages'
+import ErrorBoundary from './common/errorboundary/errorBoundary'
 // import serialize from 'serialize-javascript'
 
 const language = navigator.language.split(/[-_]/)[0]
@@ -17,7 +18,9 @@ ReactDOM.render(
   <IntlProvider defaultLocale="en" locale={language} messages={messages[language]}>
     <Provider store={store}>
       <StrictMode>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </StrictMode>
     </Provider>
   </IntlProvider>,

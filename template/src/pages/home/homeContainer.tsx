@@ -55,10 +55,10 @@ export default function HomeContainer(props: Props) {
         />
       )}
       <div
-        className="text-muted font-13 my-3"
-        title="do '$ npm run start:server' for mock server, if not done already"
+        className="text-muted font-13x my-3"
+        title="do '$ yarn run start:server' for mock server, if not done already"
       >
-        Mock server: <code>$ npm run start:server</code>
+        Mock server: <code>$ yarn run start:server</code>
       </div>
     </div>
   )

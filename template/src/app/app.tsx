@@ -18,6 +18,12 @@ export default function App() {
   return (
     <IntlProvider defaultLocale="en" locale={language} messages={messages[language]}>
       <Suspense fallback={<ReLoader loading={true} />}>
+        <ToastContainer
+          autoClose={toastDuration}
+          toastClassName="f-14"
+          newestOnTop={true}
+        />
+        <ReLoader loading={loading} />
         <Form className="w-60 float-right">
           <Form.Group controlId="language">
             <Form.Control
@@ -33,12 +39,6 @@ export default function App() {
             </Form.Control>
           </Form.Group>
         </Form>
-        <ToastContainer
-          autoClose={toastDuration}
-          toastClassName="f-14"
-          newestOnTop={true}
-        />
-        <ReLoader loading={loading} />
         <Routes />
       </Suspense>
     </IntlProvider>

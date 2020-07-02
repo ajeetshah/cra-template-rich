@@ -1,0 +1,13 @@
+:root {
+  --primary-color: green;
+}
+
+body[data-theme='light'] {
+  --body-bg: white;
+  --color: black;
+}
+
+body[data-theme='dark'] {
+  --body-bg: black;
+  --color: white;
+}

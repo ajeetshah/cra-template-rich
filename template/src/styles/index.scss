@@ -8,6 +8,13 @@ body,
   font-family: 'Ubuntu', sans-serif;
 }
 
+body {
+  color: var(--color) !important;
+  background-color: var(--body-bg) !important;
+}
+
+@import './css-variables';
+
 // libraries
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
 @import '../../node_modules/react-perfect-scrollbar/dist/css/styles.css';

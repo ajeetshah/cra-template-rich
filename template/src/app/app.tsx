@@ -45,7 +45,7 @@ export default function App() {
               id="theme-switch"
               type="switch"
               defaultChecked={themeChecked}
-              label={themeChecked ? 'Day' : 'Night'}
+              label={themeChecked ? 'Night' : 'Day'}
               onChange={toggleTheme}
             />
           </Form.Group>

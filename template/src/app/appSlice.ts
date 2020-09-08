@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { StoreState } from '../store/store'
+import { IStoreState } from '../store/store'
 
-export interface App {
+export interface IApp {
   loading: boolean
 }
 
@@ -17,7 +17,7 @@ export const slice = createSlice({
   },
 })
 
-export const selectLoading = (state: StoreState) => state.app.loading
+export const selectLoading = (state: IStoreState) => state.app.loading
 
 export const { setLoading } = slice.actions
 

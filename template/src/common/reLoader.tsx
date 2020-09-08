@@ -11,12 +11,12 @@ const override = css`
   border-color: ${colorOrange};
 `
 
-interface Props extends LoaderHeightWidthProps {
+interface IProps extends LoaderHeightWidthProps {
   loading: boolean
 }
 
-export default function ReLoader(props: Props) {
-  const defaultProps: Partial<Props> = {
+export default function ReLoader(props: IProps) {
+  const defaultProps: Partial<IProps> = {
     width: props.width || '100%',
     color: props.color || colorOrange,
     height: props.height || 2,

@@ -1,12 +1,12 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit'
 import apiActionMiddleware from './apiActionMiddleware'
 
-import appReducer, { App } from '../app/appSlice'
-import homeReducer, { Home } from '../pages/home/homeSlice'
+import appReducer, { IApp } from '../app/appSlice'
+import homeReducer, { IHome } from '../pages/home/homeSlice'
 
-export interface StoreState {
-  app: App
-  home: Home
+export interface IStoreState {
+  app: IApp
+  home: IHome
 }
 
 const store = configureStore({

@@ -1,6 +1,6 @@
 import React from 'react'
 
-interface Props {
+interface IProps {
   children: React.ReactNode
   className?: string
   disabled?: boolean
@@ -9,7 +9,7 @@ interface Props {
   type?: 'submit' | 'reset' | 'button'
 }
 
-export default function RePrimaryButton(props: Props) {
+export default function RePrimaryButton(props: IProps) {
   const {
     children,
     className = '',

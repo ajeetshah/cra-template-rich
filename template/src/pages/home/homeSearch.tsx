@@ -6,22 +6,22 @@ import ReErrorText from '../../common/texts/reErrorText'
 import RePrimaryButton from '../../common/buttons/rePrimaryButton'
 import { useIntl } from 'react-intl'
 
-interface Props {
-  onSubmit: (data: FormData) => void
+interface IProps {
+  onSubmit: (data: IFormData) => void
 }
 
-export interface FormData {
+export interface IFormData {
   searchText: string
 }
 
-export default function HomeSearch(props: Props) {
+export default function HomeSearch(props: IProps) {
   const { formatMessage } = useIntl()
   const { onSubmit } = props
-  const { register, handleSubmit: validateBefore, errors } = useForm<FormData>({
+  const { register, handleSubmit: validateBefore, errors } = useForm<IFormData>({
     mode: 'onChange',
   })
 
-  function handleSubmit(data: FormData) {
+  function handleSubmit(data: IFormData) {
     onSubmit(data)
   }
 

@@ -4,26 +4,26 @@ import { unwrapResult } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 import { AxiosResponse } from 'axios'
 import { useIntl } from 'react-intl'
-import HomeSearch, { FormData } from './homeSearch'
+import HomeSearch, { IFormData } from './homeSearch'
 import ReHeading1 from '../../common/typography/reHeading1'
 import HomeList from './homeList'
-import { homeState, Car, setSelectedCar, fetchCars } from './homeSlice'
+import { homeState, ICar, setSelectedCar, fetchCars } from './homeSlice'
 import ReInfoText from '../../common/texts/reInfoText'
 import { showSuccessToast } from '../../utils/toastUtil'
 
-interface Props {}
+interface IProps {}
 
-export default function HomeContainer(props: Props) {
+export default function HomeContainer(props: IProps) {
   const { formatMessage } = useIntl()
   const dispatch: any = useDispatch()
   const { cars, selectedCar } = useSelector(homeState)
 
-  function handleSubmit(data: FormData) {
-    handleChangeActive({} as Car)
+  function handleSubmit(data: IFormData) {
+    handleChangeActive({} as ICar)
 
     dispatch(fetchCars(data.searchText))
       .then(unwrapResult)
-      .then((res: AxiosResponse<Car[]>) => {
+      .then((res: AxiosResponse<ICar[]>) => {
         console.debug('cars', res.data)
         showSuccessToast('Data fetched successfully')
       })
@@ -32,7 +32,7 @@ export default function HomeContainer(props: Props) {
       })
   }
 
-  function handleChangeActive(car: Car) {
+  function handleChangeActive(car: ICar) {
     dispatch(setSelectedCar(car))
   }
 

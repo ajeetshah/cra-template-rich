@@ -1,12 +1,13 @@
 import React from 'react'
 
-interface Props {}
-interface State {
+interface IProps {}
+
+interface IState {
   error: any
   errorInfo: any
 }
 
-export default class ErrorBoundary extends React.Component<Props, State> {
+export default class ErrorBoundary extends React.Component<IProps, IState> {
   constructor(props) {
     super(props)
     this.state = { error: null, errorInfo: null }
@@ -23,7 +24,6 @@ export default class ErrorBoundary extends React.Component<Props, State> {
 
   render() {
     if (this.state.errorInfo) {
-      // Error path
       return (
         <div>
           <h2>Something went wrong.</h2>
@@ -35,7 +35,6 @@ export default class ErrorBoundary extends React.Component<Props, State> {
         </div>
       )
     }
-    // Normally, just render children
     return this.props.children
   }
 }

@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
-import { StoreState } from '../../store/store'
+import { IStoreState } from '../../store/store'
 import { get } from '../../http/httpMethods'
 import { urlCars } from '../../constants/apiURLs'
 import { AxiosResponse } from 'axios'
 
 const sliceName = 'home'
 
-export interface Car {
+export interface ICar {
   id: string
   title: string
 }
 
-export interface Home {
-  cars: Car[]
-  selectedCar: Car
+export interface IHome {
+  cars: ICar[]
+  selectedCar: ICar
 }
 
 export const fetchCars = createAsyncThunk(
@@ -22,7 +22,7 @@ export const fetchCars = createAsyncThunk(
     const { rejectWithValue } = thunkAPI
     const url = query ? urlCars + '?title_like=' + query : urlCars
     try {
-      return await get<Car[]>(url)
+      return await get<ICar[]>(url)
     } catch (err) {
       if (!err.response) {
         throw err
@@ -35,11 +35,11 @@ export const fetchCars = createAsyncThunk(
 export const slice = createSlice({
   name: sliceName,
   initialState: {
-    cars: [] as Car[],
-    selectedCar: {} as Car,
+    cars: [] as ICar[],
+    selectedCar: {} as ICar,
   },
   reducers: {
-    setSelectedCar: (state: Home, action: PayloadAction<Car>) => {
+    setSelectedCar: (state: IHome, action: PayloadAction<ICar>) => {
       state.selectedCar = action.payload
     },
   },
@@ -49,7 +49,7 @@ export const slice = createSlice({
     },
     [fetchCars.fulfilled.toString()]: (
       state,
-      action: PayloadAction<AxiosResponse<Car[]>>
+      action: PayloadAction<AxiosResponse<ICar[]>>
     ) => {
       state.cars = action.payload.data
     },
@@ -59,8 +59,6 @@ export const slice = createSlice({
   },
 })
 
-export const homeState = (state: StoreState) => state.home
-
+export const homeState = (state: IStoreState) => state.home
 export const { setSelectedCar } = slice.actions
-
 export default slice.reducer

@@ -1,10 +1,10 @@
 import React from 'react'
 import { FormattedMessage } from 'react-intl'
 
-interface Props {
+interface IProps {
   id: string
 }
 
-export default function FormattedMsg(props: Props) {
-  return <FormattedMessage id={props.id} defaultMessage={'N/A'} />
+export default function FormattedMsg(props: IProps) {
+  return <FormattedMessage id={props.id} defaultMessage="N/A" />
 }

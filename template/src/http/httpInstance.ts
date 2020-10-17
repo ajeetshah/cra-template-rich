@@ -12,11 +12,10 @@ const timeout = Number(process.env.REACT_APP_API_TIMEOUT || 20000)
 
 const instance = axios.create({
   baseURL: `//${host}:${port}`,
-  timeout
+  timeout,
 })
 
 instance.interceptors.request.use(handlePreRequest, handleRequestError)
-
 instance.interceptors.response.use(handleResponseSuccess, handleResponseError)
 
 export default instance

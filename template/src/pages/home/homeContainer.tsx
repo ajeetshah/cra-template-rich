@@ -24,11 +24,10 @@ export default function HomeContainer(props: IProps) {
     dispatch(fetchCars(data.searchText))
       .then(unwrapResult)
       .then((res: AxiosResponse<ICar[]>) => {
-        console.debug('cars', res.data)
         showSuccessToast('Data fetched successfully')
       })
       .catch((error) => {
-        console.debug('error', error)
+        console.error('error', error)
       })
   }
 

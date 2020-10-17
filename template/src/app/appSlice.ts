@@ -18,7 +18,5 @@ export const slice = createSlice({
 })
 
 export const selectLoading = (state: IStoreState) => state.app.loading
-
 export const { setLoading } = slice.actions
-
 export default slice.reducer

@@ -66,6 +66,7 @@ export default function HomeContainer(props: IProps) {
           <code>
             <input
               type="text"
+              readOnly
               className="cursor-pointer bg-transparent text-success border-0"
               value="yarn run json-server"
               id="run-json-server"

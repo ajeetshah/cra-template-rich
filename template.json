@@ -35,20 +35,27 @@
       "typescript": "^4.0.3"
     },
     "scripts": {
+      "clean": "rimraf build",
       "start": "react-scripts start",
-      "start:server": "json-server -c mock/config.json mock/index.js",
       "build": "react-scripts build",
-      "build:custom": "env-cmd -f envs/.env.custom react-scripts build",
       "test": "react-scripts test",
       "eject": "react-scripts eject",
-      "clean": "rimraf build",
-      "license": "run-s license-generate license-format",
+      "build-development": "env-cmd -f envs/.env.development react-scripts build",
+      "build-staging": "env-cmd -f envs/.env.staging react-scripts build",
+      "build-production": "env-cmd -f envs/.env.production react-scripts build",
+      "json-server": "json-server -c mock/config.json mock/index.js",
       "license-generate": "license-checker --production --csv --out license/license.csv",
-      "license-format": "node license/license-formatter.js"
+      "license-format": "node license/license-formatter.js",
+      "license": "run-s license-generate license-format"
     },
     "eslintConfig": {
-      "extends": ["react-app", "plugin:jsx-a11y/recommended"],
-      "plugins": ["jsx-a11y"]
+      "extends": [
+        "react-app",
+        "plugin:jsx-a11y/recommended"
+      ],
+      "plugins": [
+        "jsx-a11y"
+      ]
     }
   }
 }

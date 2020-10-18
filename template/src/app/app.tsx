@@ -14,7 +14,7 @@ const languages = ['ar', 'en', 'es', 'fr', 'ru', 'zh']
 export default function App() {
   const loading = useSelector(selectLoading)
   const [language, setLanguage] = useState('en')
-  const [themeChecked, setThemeChecked] = useState(true)
+  const [themeChecked, setThemeChecked] = useState(false)
 
   const toastDuration = Number(process.env.REACT_APP_TOAST_DURATION || 5000)
 

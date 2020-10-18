@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './home.scss'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,6 +10,7 @@ import HomeList from './homeList'
 import { homeState, ICar, setSelectedCar, fetchCars } from './homeSlice'
 import ReInfoText from '../../common/texts/reInfoText'
 import { showSuccessToast } from '../../utils/toastUtil'
+import { copyInputTextToClipboard } from '../../utils/commonUtils'
 
 interface IProps {}
 
@@ -17,6 +18,7 @@ export default function HomeContainer(props: IProps) {
   const { formatMessage } = useIntl()
   const dispatch: any = useDispatch()
   const { cars, selectedCar } = useSelector(homeState)
+  const [isMockServerOn, setIsMockServerOn] = useState(false)
 
   function handleSubmit(data: IFormData) {
     handleChangeActive({} as ICar)
@@ -24,6 +26,7 @@ export default function HomeContainer(props: IProps) {
     dispatch(fetchCars(data.searchText))
       .then(unwrapResult)
       .then((res: AxiosResponse<ICar[]>) => {
+        setIsMockServerOn(true)
         showSuccessToast('Data fetched successfully')
       })
       .catch((error) => {
@@ -53,12 +56,23 @@ export default function HomeContainer(props: IProps) {
           className="pt-2"
         />
       )}
-      <div
-        className="text-muted font-13x my-3"
-        title="do '$ yarn run start:server' for mock server, if not done already"
-      >
-        Mock server: <code>$ yarn run start:server</code>
-      </div>
+      {!isMockServerOn && (
+        <div
+          title="Click to copy"
+          className="text-mutedx font-14 my-3 cursor-pointer"
+          onClick={(e) => copyInputTextToClipboard('run-json-server')}
+        >
+          Start the mock JSON server, click to copy:{' '}
+          <code>
+            <input
+              type="text"
+              className="cursor-pointer bg-transparent text-success border-0"
+              value="yarn run json-server"
+              id="run-json-server"
+            />
+          </code>
+        </div>
+      )}
     </div>
   )
 }

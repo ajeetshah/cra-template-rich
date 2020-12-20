@@ -3,7 +3,6 @@ import ReRequiredMark from './reRequiredMark'
 
 interface Props {
   autoComplete?: string
-  autoFocus?: boolean
   className?: string
   defaultValue?: string
   formGroupClassName?: string
@@ -21,7 +20,6 @@ interface Props {
 export default function ReTextInput(props: Props) {
   const {
     autoComplete = 'off',
-    autoFocus = false,
     className = '',
     defaultValue = '',
     formGroupClassName = '',
@@ -51,7 +49,6 @@ export default function ReTextInput(props: Props) {
         className={`form-control ${className}`}
         placeholder={placeholder}
         autoComplete={autoComplete}
-        autoFocus={autoFocus}
         defaultValue={defaultValue}
         ref={refProp}
       />

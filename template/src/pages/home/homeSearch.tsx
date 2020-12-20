@@ -31,7 +31,6 @@ export default function HomeSearch(props: IProps) {
         id="searchText"
         name="searchText"
         className="h-50px"
-        autoFocus={true}
         placeholder={formatMessage({ id: 'home.placeholder.search' })}
         refProp={register({ required: false, pattern: patternCarSearch })}
       />

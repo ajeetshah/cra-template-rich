@@ -58,9 +58,12 @@ export default function HomeContainer(props: IProps) {
       )}
       {!isMockServerOn && (
         <div
+          role="button"
+          tabIndex={0}
           title="Click to copy"
           className="text-mutedx font-14 my-3 cursor-pointer"
           onClick={(e) => copyInputTextToClipboard('run-json-server')}
+          onKeyUp={(e) => copyInputTextToClipboard('run-json-server')}
         >
           Start the mock JSON server, click to copy:{' '}
           <code>

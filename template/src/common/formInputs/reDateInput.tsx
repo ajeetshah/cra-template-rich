@@ -1,4 +1,3 @@
-import React from 'react'
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker'
 
 interface Props extends ReactDatePickerProps {}

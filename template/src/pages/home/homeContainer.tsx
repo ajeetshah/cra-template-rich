@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import './home.scss'
 import { unwrapResult } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,17 +7,18 @@ import { useIntl } from 'react-intl'
 import HomeSearch, { IFormData } from './homeSearch'
 import ReHeading1 from '../../common/typography/reHeading1'
 import HomeList from './homeList'
-import { homeState, ICar, setSelectedCar, fetchCars } from './homeSlice'
+import { selectHome, setSelectedCar, fetchCars } from './homeSlice'
 import ReInfoText from '../../common/texts/reInfoText'
 import { showSuccessToast } from '../../utils/toastUtil'
 import { copyInputTextToClipboard } from '../../utils/commonUtils'
+import { ICar } from './iHome'
 
 interface IProps {}
 
 export default function HomeContainer(props: IProps) {
   const { formatMessage } = useIntl()
   const dispatch: any = useDispatch()
-  const { cars, selectedCar } = useSelector(homeState)
+  const { cars, selectedCar } = useSelector(selectHome)
   const [isMockServerOn, setIsMockServerOn] = useState(false)
 
   function handleSubmit(data: IFormData) {

@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from 'react'
+import { Suspense, useState, useEffect } from 'react'
 import Routes from '../routes/routes'
 import ReLoader from '../common/reLoader'
 import { selectLoading } from './appSlice'

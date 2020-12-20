@@ -1,5 +1,3 @@
-import React from 'react'
-
 interface IProps {
   text: string
   className?: string

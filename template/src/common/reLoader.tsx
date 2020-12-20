@@ -1,4 +1,3 @@
-import React from 'react'
 import { css } from '@emotion/core'
 import BarLoader from 'react-spinners/BarLoader'
 import { LoaderHeightWidthProps } from 'react-spinners/interfaces'

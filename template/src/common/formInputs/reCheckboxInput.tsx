@@ -1,4 +1,4 @@
-import React, { LegacyRef } from 'react'
+import { LegacyRef } from 'react'
 import { Form } from 'react-bootstrap'
 
 interface Option {
@@ -21,7 +21,7 @@ export default function ReCheckboxInput(props: Props) {
   return (
     <>
       {hintText && <p>{hintText}</p>}
-      {options.map(item => {
+      {options.map((item) => {
         return (
           <Form.Check
             defaultChecked={item.defaultChecked}

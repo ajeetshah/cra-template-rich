@@ -1,4 +1,4 @@
-import React, { LegacyRef } from 'react'
+import { LegacyRef } from 'react'
 import ReTextInput from './reTextInput'
 
 interface Props {
@@ -10,7 +10,13 @@ interface Props {
 }
 
 export default function ReMobileInput(props: Props) {
-  const { id = 're-number', name, defaultValue = '', refProp = null, placeholder = '' } = props
+  const {
+    id = 're-number',
+    name,
+    defaultValue = '',
+    refProp = null,
+    placeholder = '',
+  } = props
   return (
     <ReTextInput
       id={id}

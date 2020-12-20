@@ -1,4 +1,4 @@
-import React, { LegacyRef } from 'react'
+import { LegacyRef } from 'react'
 import { Form } from 'react-bootstrap'
 
 interface Option {
@@ -21,7 +21,7 @@ export default function ReRadioInput(props: Props) {
   return (
     <>
       {hintText && <p>{hintText}</p>}
-      {options.map(option => {
+      {options.map((option) => {
         return (
           <Form.Check
             defaultChecked={option.defaultChecked}

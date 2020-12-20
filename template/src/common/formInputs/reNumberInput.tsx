@@ -1,4 +1,4 @@
-import React, { LegacyRef } from 'react'
+import { LegacyRef } from 'react'
 import ReTextInput from './reTextInput'
 
 interface Props {

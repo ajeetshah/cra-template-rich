@@ -1,4 +1,4 @@
-import React, { LegacyRef } from 'react'
+import { LegacyRef } from 'react'
 import { Form } from 'react-bootstrap'
 
 interface Props {

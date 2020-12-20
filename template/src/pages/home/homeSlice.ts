@@ -1,23 +1,19 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit'
-import { IStoreState } from '../../store/store'
+import { IStore } from '../../store/store'
 import { get } from '../../http/httpMethods'
 import { urlCars } from '../../constants/apiURLs'
 import { AxiosResponse } from 'axios'
+import { ICar, IHome } from './iHome'
 
-const sliceName = 'home'
+const name = 'home'
 
-export interface ICar {
-  id: string
-  title: string
-}
-
-export interface IHome {
-  cars: ICar[]
-  selectedCar: ICar
+const initialState: IHome = {
+  cars: [],
+  selectedCar: {} as ICar,
 }
 
 export const fetchCars = createAsyncThunk(
-  `${sliceName}/fetchCars`,
+  `${name}/fetchCars`,
   async (query: string, thunkAPI) => {
     const { rejectWithValue } = thunkAPI
     const url = query ? urlCars + '?title_like=' + query : urlCars
@@ -33,11 +29,8 @@ export const fetchCars = createAsyncThunk(
 )
 
 export const slice = createSlice({
-  name: sliceName,
-  initialState: {
-    cars: [] as ICar[],
-    selectedCar: {} as ICar,
-  },
+  name,
+  initialState,
   reducers: {
     setSelectedCar: (state: IHome, action: PayloadAction<ICar>) => {
       // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -68,6 +61,6 @@ export const { setSelectedCar } = slice.actions
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state) => state.home)`
-export const homeState = (state: IStoreState) => state.home
+export const selectHome = (state: IStore) => state.home
 
 export default slice.reducer

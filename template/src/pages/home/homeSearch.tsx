@@ -13,9 +13,8 @@ export interface IFormData {
   searchText: string
 }
 
-export default function HomeSearch(props: IProps) {
+export default function HomeSearch({ onSubmit }: IProps) {
   const { formatMessage } = useIntl()
-  const { onSubmit } = props
   const { register, handleSubmit: validateBefore, errors } = useForm<IFormData>({
     mode: 'onChange',
   })

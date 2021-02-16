@@ -1,6 +1,6 @@
 import ReInfoText from '../../common/texts/reInfoText'
 
-interface Props {
+interface IProps {
   items: any[]
   itemIdKey?: string
   itemTitleKey?: string
@@ -8,15 +8,13 @@ interface Props {
   onChangeActive: (item: any) => void
 }
 
-export default function HomeList(props: Props) {
-  const {
-    items = [],
-    itemIdKey = 'id',
-    itemTitleKey = 'title',
-    activeItem = {},
-    onChangeActive,
-  } = props
-
+export default function HomeList({
+  items = [],
+  itemIdKey = 'id',
+  itemTitleKey = 'title',
+  activeItem = {},
+  onChangeActive,
+}: IProps) {
   function handleClick(item: any) {
     onChangeActive(item)
   }

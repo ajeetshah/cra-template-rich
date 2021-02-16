@@ -1,7 +1,7 @@
 import { Suspense, useState, useEffect } from 'react'
 import Routes from '../routes/routes'
 import ReLoader from '../common/reLoader'
-import { selectLoading } from './appSlice'
+import { selectApp } from './appSlice'
 import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 import { IntlProvider } from 'react-intl'
@@ -12,7 +12,7 @@ import { setDarkTheme, setLightTheme } from '../utils/themeUtil'
 const languages = ['ar', 'en', 'es', 'fr', 'ru', 'zh']
 
 export default function App() {
-  const loading = useSelector(selectLoading)
+  const { loading } = useSelector(selectApp)
   const [language, setLanguage] = useState('en')
   const [themeChecked, setThemeChecked] = useState(false)
 
@@ -40,9 +40,9 @@ export default function App() {
         />
         <ReLoader loading={loading} />
         <Form className="w-60 float-left">
-          <Form.Group controlId="theme-switch">
+          <Form.Group>
             <Form.Check
-              id="theme-switch"
+              id="themeSwitch"
               type="switch"
               defaultChecked={themeChecked}
               label={themeChecked ? 'Night' : 'Day'}
@@ -51,7 +51,7 @@ export default function App() {
           </Form.Group>
         </Form>
         <Form className="w-60 float-right">
-          <Form.Group controlId="language">
+          <Form.Group>
             <Form.Control
               as="select"
               defaultValue={language}

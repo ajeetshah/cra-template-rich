@@ -1,19 +1,17 @@
-import { lazy, LazyExoticComponent } from 'react'
-
-const Home = lazy(() => import('../pages/home/homeContainer'))
+import HomeLayout from '../pages/home/homeLayout'
 
 export const paths = {
   home: '/home',
 }
 
-interface PathComponent {
+interface IPathComponent {
   path: string
-  component: LazyExoticComponent<(props: any) => JSX.Element>
+  component: () => JSX.Element
 }
 
-export const pathComponents: PathComponent[] = [
+export const pathComponents: IPathComponent[] = [
   {
     path: paths.home,
-    component: Home,
+    component: HomeLayout,
   },
 ]

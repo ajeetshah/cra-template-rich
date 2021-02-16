@@ -1,13 +1,11 @@
 import { Component } from 'react'
 
-interface IProps {}
-
 interface IState {
   error: any
   errorInfo: any
 }
 
-export default class ErrorBoundary extends Component<IProps, IState> {
+export default class ErrorBoundary extends Component<{}, IState> {
   constructor(props) {
     super(props)
     this.state = { error: null, errorInfo: null }

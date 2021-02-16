@@ -12,10 +12,10 @@ import ReInfoText from '../../common/texts/reInfoText'
 import { showSuccessToast } from '../../utils/toastUtil'
 import { copyInputTextToClipboard } from '../../utils/commonUtils'
 import { ICar } from './iHome'
+import useDocumentTitle from '../../hooks/useDocumentTitle'
 
-interface IProps {}
-
-export default function HomeContainer(props: IProps) {
+export default function HomeContainer() {
+  useDocumentTitle('Home')
   const { formatMessage } = useIntl()
   const dispatch: any = useDispatch()
   const { cars, selectedCar } = useSelector(selectHome)
@@ -63,17 +63,17 @@ export default function HomeContainer(props: IProps) {
           tabIndex={0}
           title="Click to copy"
           className="text-mutedx font-14 my-3 cursor-pointer"
-          onClick={(e) => copyInputTextToClipboard('run-json-server')}
-          onKeyUp={(e) => copyInputTextToClipboard('run-json-server')}
+          onClick={(e) => copyInputTextToClipboard('runJsonServer')}
+          onKeyPress={(e) => copyInputTextToClipboard('runJsonServer')}
         >
-          Start the mock JSON server, click to copy:{' '}
+          Start the mock JSON server, click to copy:
           <code>
             <input
               type="text"
               readOnly
               className="cursor-pointer bg-transparent text-success border-0"
-              value="yarn run json-server"
-              id="run-json-server"
+              value="yarn json-server"
+              id="runJsonServer"
             />
           </code>
         </div>

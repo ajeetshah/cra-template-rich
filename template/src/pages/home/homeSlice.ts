@@ -19,7 +19,7 @@ export const fetchCars = createAsyncThunk(
     const url = query ? urlCars + '?title_like=' + query : urlCars
     try {
       return await get<ICar[]>(url)
-    } catch (err) {
+    } catch (err: any) {
       if (!err.response) {
         throw err
       }
